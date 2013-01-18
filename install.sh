@@ -24,7 +24,7 @@ fi
 case "$COMMAND" in
 'install')
     echo "CHANGING DEFAULT PYTHON"
-    mv /usr/bin/python/usr/bin/python.org
+    mv /usr/bin/python /usr/bin/python.org
     ln -s /usr/bin/python2 /usr/bin/python
     echo "Installing HYBERIA Projektor"
     python setup.py $COMMAND --record uninstall.db
