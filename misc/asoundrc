@@ -6,7 +6,7 @@ pcm.ladcomp {
 pcm.ladcomp_compressor {
 	type ladspa
 	slave.pcm "ladcomp_limiter";
-	path "/usr/local/lib/ladspa";
+	path "/usr/lib/ladspa";
 	plugins [
 	{
 	label dysonCompress
@@ -21,7 +21,7 @@ pcm.ladcomp_compressor {
 pcm.ladcomp_limiter {
 	type ladspa
 	slave.pcm "plughw:0,0";
-	path "/usr/local/lib/ladspa";
+	path "/usr/lib/ladspa";
 	plugins [
 	{
 		label fastLookaheadLimiter
