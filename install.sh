@@ -37,14 +37,14 @@ case "$COMMAND" in
 ;;
 'ossetup')
     echo "OS SETUP. This will change system files."
-    if [ -e /etc/inittab.hyb ] ;
-    then
-        echo "Inittab already changed"
-    else
-        echo "Updating inittab"
-        cp /etc/inittab /etc/inittab.hyb
-        cat misc/inittab >> /etc/inittab
-    fi
+    # if [ -e /etc/inittab.hyb ] ;
+    # then
+        # echo "Inittab already changed"
+    # else
+        # echo "Updating inittab"
+        # cp /etc/inittab /etc/inittab.hyb
+        # cat misc/inittab >> /etc/inittab
+    # fi
     if [ -e /etc/X11/xinit/xinitrc.hyb ];
     then
         echo "xinitrc already updated"
@@ -56,6 +56,11 @@ case "$COMMAND" in
         mv xinitrc xinitrc.hyb
         mv xinitrc.new xinitrc
     fi
+    echo "Installing service file for systemd"
+    cp cfg/hyberia.service /usr/lib/systemd/system/
+    cp cfg/startx.service /usr/lib/systemd/system/
+    systemctl enable hyberia
+    systemctl enable startx
 #end of ossetup
 ;;
 'uninstall')

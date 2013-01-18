@@ -1,0 +1,8 @@
+[Unit]
+Description=Hyberia Controller
+
+[Service]
+ExecStart=/usr/bin/hyberiactl
+
+[Install]
+WantedBy=graphical.target
