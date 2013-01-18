@@ -3,6 +3,7 @@ Description=Hyberia Controller
 
 [Service]
 ExecStart=/usr/bin/hyberiactl
+Restart=always
 
 [Install]
 WantedBy=graphical.target

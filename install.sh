@@ -23,6 +23,9 @@ fi
 
 case "$COMMAND" in
 'install')
+    echo "CHANGING DEFAULT PYTHON"
+    rm /usr/bin/python
+    ln -s /usr/bin/python2 /usr/bin/python
     echo "Installing HYBERIA Projektor"
     python setup.py $COMMAND --record uninstall.db
 
@@ -37,14 +40,6 @@ case "$COMMAND" in
 ;;
 'ossetup')
     echo "OS SETUP. This will change system files."
-    # if [ -e /etc/inittab.hyb ] ;
-    # then
-        # echo "Inittab already changed"
-    # else
-        # echo "Updating inittab"
-        # cp /etc/inittab /etc/inittab.hyb
-        # cat misc/inittab >> /etc/inittab
-    # fi
     if [ -e /etc/X11/xinit/xinitrc.hyb ];
     then
         echo "xinitrc already updated"
@@ -70,15 +65,7 @@ case "$COMMAND" in
     echo "Cleaning support files"
     rm -rf /usr/share/fonts/hyberia
 
-    echo "Cleaning System modified file."
-    if [ -e /etc/inittab.hyb ];
-    then
-        echo "Restoring /etc/inittab"
-        mv /etc/inittab.hyb /etc/inittab
-    else
-        echo "no backup for inittab, skipping"
-    fi
-    if [ -e /etc/X11/xinit/xinitrc.hyb ];
+    if [ -e /etc/X11/xinit/xinitrc.hyb ];    
     then
         echo "Restoring /etc/X11/xinit/xinitrc"
         mv /etc/X11/xinit/xinitrc.hyb /etc/X11/xinit/xinitrc

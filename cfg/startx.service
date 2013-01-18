@@ -2,8 +2,8 @@
 Description=Startx
 
 [Service]
-#User=bob #uncomment this to run startx as desired user (in example bob), otherwise it will run startx as root
 ExecStart=/usr/bin/startx
+Restart=always
 
 [Install]
 WantedBy=graphical.target
