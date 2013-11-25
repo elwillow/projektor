@@ -1,5 +1,5 @@
 [Unit]
-Description=Startx
+Description=Hyberia X Server
 
 [Service]
 ExecStart=/usr/bin/startx

@@ -1,0 +1,11 @@
+[Unit]
+Description=Hyberia Audio (alsa)
+Requires=hyberia-x.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/sbin/alsactl restore -d -f /etc/asound.state
+Restart=always
+
+[Install]
+WantedBy=graphical.target

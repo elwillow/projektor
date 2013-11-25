@@ -1,0 +1,12 @@
+[Unit]
+Description=Hyberia Player (mplayer)
+Requires=hyberia-x.service
+
+[Service]
+ExecStartPre=/usr/bin/systemctl restart hyberia-ctl
+ExecStart=/usr/bin/mplayer -idle -include /root/.mplayer/config -slave -input file=/tmp/hyberia_slave.fifo >> /tmp/mplayer.out 2>> /tmp/mplayer.err
+Environment=DISPLAY=:0
+Restart=always
+
+[Install]
+WantedBy=graphical.target
