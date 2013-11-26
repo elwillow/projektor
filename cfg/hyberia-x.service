@@ -2,7 +2,7 @@
 Description=Hyberia X Server
 
 [Service]
-ExecStart=/usr/bin/startx
+ExecStart=/usr/bin/X
 Restart=always
 
 [Install]
